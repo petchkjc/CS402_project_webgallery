@@ -7,15 +7,15 @@ from django.contrib.sessions.models import Session
 
 class Person(models.Model):
     session=models.ForeignKey(Session,blank=True,null=True)
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=100,blank=True,null=True)
     dob=models.DateField(blank=False,null=False)
-    age=models.CharField(max_length=2)
+    age=models.CharField(max_length=2,blank=True,null=True)
     gender=models.CharField(
         choices=(
             ('Male', 'Male'),
             ('Female', 'Female'),
             ),
-        max_length=6,
+        max_length=6,blank=True,null=True
         )
     job=models.CharField(
         choices=(
@@ -34,7 +34,7 @@ class Person(models.Model):
             (u'เชฟ', u'เชฟ'),
             (u'อื่น ๆ', u'อื่น ๆ'),
             ),
-        max_length=100,
+        max_length=100,blank=True,null=True
         )
     province=models.CharField(
         choices=(
@@ -116,14 +116,14 @@ class Person(models.Model):
             (u'อุบลราชธานี', u'อุบลราชธานี'),
             (u'อำนาจเจริญ', u'อำนาจเจริญ'),
             ),
-        max_length=20,
+        max_length=20,blank=True,null=True
         )
     typeofphone=models.CharField(
         choices=(
             ('OSI','IOS'),
             ('Android', 'Android'),
             ),
-        max_length=7,
+        max_length=7,blank=True,null=True
         )
     def __unicode__(self):
         return u"%s"%(self.name)
